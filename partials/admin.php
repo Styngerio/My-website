@@ -26,6 +26,7 @@
               </a>
               <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item text-warning" href="porfile.php">Porfile</a></li>
+                <li><a class="dropdown-item text-warning" href="newCourse.php">Add Courses</a></li>
                 <li><a class="dropdown-item text-warning" href="users.php">Users</a></li>
                 <li><a class="dropdown-item text-warning" href="courses.php">My Courses</a></li>
                 <li><hr class="dropdown-divider text-warning"></li>
