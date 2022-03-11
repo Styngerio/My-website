@@ -1,6 +1,11 @@
 <?php
+
+session_start();
+if (isset($_SESSION['id_user'])){
+    $x=$_SESSION['id_user'];
+    $id=$x;
     require_once('../partials/conect.php');
-    $sql = mysqli_query($conn, "SELECT * FROM user");
+    $sql = mysqli_query($conn, "SELECT * FROM user WHERE id_user !='$id' ");
     if (!$sql){
         die('Query failed'.mysqli_error($conn));
     }
@@ -14,5 +19,31 @@
     }
     $jsonstring = json_encode($json);
     echo $jsonstring;
+    
+}else{
+    echo "<script> window.location='account.php'</script>";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 ?>

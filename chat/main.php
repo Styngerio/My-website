@@ -1,3 +1,24 @@
+<?php
+session_start();
+if (isset($_SESSION['id_user'])){
+    $x=$_SESSION['id_user'];
+    $id=$x;
+    require_once('../partials/conect.php');
+    $sql=mysqli_query($conn,"SELECT * FROM user WHERE id_user='$id'");
+    $rows=mysqli_fetch_array($sql);
+    $id=$rows['id_user'];
+    $lname=$rows['lastname'];
+    
+    
+}else{
+    echo "<script> window.location='../account.php'</script>";
+}
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,18 +50,21 @@
             </div>
             <div class="col">
                 <h1>Chat</h1>
-                <div class="mb-3">
-                    <div class="row container">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body" id="chat">
-                            
-                            <h6 class="card-subtitle mb-2 text-muted">On line</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
+                <div class="mb-3">  
+                    <div class="row container" >
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body" >
+                                <h5 class="card-title" id="chat"></h5>
+                                <h6 class="card-subtitle mb-2 text-muted">On line</h6>
+                                <div id="messages"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <form action="send.php" method="post">
+                            <input type="hidden" id= "from" value="<?php echo $id;?>" >
+                            <input type="hidden" id="to" >
+                            <div ></div>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message" placeholder='type your message' ></textarea>
                             <input type="submit" value='send' class='btn btn-primary mb-3'>
                         </form>
@@ -58,11 +82,6 @@
 </html>
 
 <!-- mini backend --> 
-<?php 
-if (isset($_POST['submit'])){
-    $id=$_POST['id'];
-    $name=$_POST['name'];
-}
-?>
+
            
 

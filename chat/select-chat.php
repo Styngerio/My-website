@@ -11,10 +11,11 @@
             $json[] = array(
                 'name' => $row['name'],
                 'lastname'=> $row['lastname'],
+                'id'=> $row['id_user'],
                 
             );
         }
-        $jsonstring = json_encode($json);
+        $jsonstring = json_encode($json[0]);
         echo $jsonstring;  
     }
     

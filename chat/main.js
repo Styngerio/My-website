@@ -20,14 +20,24 @@ $(document).ready(function(){
         let id = $(item).attr('userID');
         $.post('select-chat.php',{id}, function(response){
             let users = JSON.parse(response);
-            let render = '';
-            users.forEach(user => {
-                render+=`
-                <h5>${user.name} ${user.lastname}</h5>
-                `
-            });
-            $('#chat').html(render);
+            let fullname = users.name.concat(' ',users.lastname)
+            $('#chat').html(fullname );
+            $('#to').val(users.id);
         })
+        list_messages(id);
     });
+    function list_messages(id){
+        $.post('messages.php',{id}, function(response){
+            let messages = JSON.parse(response);
+            let render ='';
+            messages.forEach(messageline => {
+                render +=`
+                <div class="bg-primary">
+                    <p>${messageline.message}</p>
+                </div>`
+            });
+            $('#messages').html(render);
+        })
+    }
 });
     
