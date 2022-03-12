@@ -26,7 +26,7 @@ if (isset($_SESSION['id_user'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://bootswatch.com/5/cyborg/bootstrap.min.css" rel="stylesheet" >
 </head>
 <body>
     <h1>Chat beta</h1>
@@ -34,7 +34,7 @@ if (isset($_SESSION['id_user'])){
         <div class="row align-items-start">
             <div class="col col-md-5">
                 <h1>List</h1>
-                <form class="row g-3">
+                <form class="row g-3" >
                     <div class="col-auto">
                         <label for="inputPassword2" class="visually-hidden">Search</label>
                         <input type="password" class="form-control" id="inputPassword2" placeholder="Search">
@@ -61,11 +61,11 @@ if (isset($_SESSION['id_user'])){
                         </div>
                     </div>
                     <div class="row">
-                        <form action="send.php" method="post">
+                        <form  id="send-message">
                             <input type="hidden" id= "from" value="<?php echo $id;?>" >
                             <input type="hidden" id="to" >
                             <div ></div>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message" placeholder='type your message' ></textarea>
+                            <textarea class="form-control" id="message" rows="3"  placeholder='type your message' ></textarea>
                             <input type="submit" value='send' class='btn btn-primary mb-3'>
                         </form>
                     </div>
